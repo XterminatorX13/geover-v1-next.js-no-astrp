@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '../assets/hero-image.jpg';
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background with optimized image -->
+  <div class="absolute inset-0 -z-10">
+    <Image
+      src={heroImage}
+      alt="Hero background"
+      class="w-full h-full object-cover"
+      loading="eager"
+      format="avif"
+      quality={90}
+      sizes="100vw"
+    />
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+  
+  <!-- Hero Content -->
+  <div class="container mx-auto px-4 text-center text-white">
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+      Lightning Fast
+      <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+        Web Performance
+      </span>
+    </h1>
+    
+    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+      Built with Astro's Islands Architecture for optimal performance, 
+      delivering sub-second load times and perfect Core Web Vitals scores.
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a 
+        href="#features" 
+        class="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200"
+      >
+        Explore Features
+      </a>
+      <a 
+        href="#performance" 
+        class="inline-flex items-center px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold rounded-lg transition-colors duration-200"
+      >
+        View Performance
+      </a>
+    </div>
+  </div>
+  
+  <!-- Performance Metrics Display -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+    <div class="flex space-x-8 text-white text-center">
+      <div>
+        <div class="text-2xl font-bold text-green-400">< 1.2s</div>
+        <div class="text-sm opacity-80">FCP</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold text-green-400">< 2.5s</div>
+        <div class="text-sm opacity-80">TTI</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold text-green-400">< 0.1</div>
+        <div class="text-sm opacity-80">CLS</div>
+      </div>
+    </div>
+  </div>
+</section>

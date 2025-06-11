@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="My Astro Project - High Performance Web App"
+  description="Experience blazing-fast performance with our Astro-powered application featuring Islands Architecture and optimal Core Web Vitals."
+>
+  <main>
+    <!-- Above-the-fold content - Static HTML -->
+    <Hero />
+    
+    <!-- Below-the-fold content - Lazy loaded -->
+    <FeatureGrid />
+    
+    <!-- Interactive FAQ - Client-side hydration when visible -->
+    <FAQ client:visible />
+    
+    <Footer />
+  </main>
+</Layout>
